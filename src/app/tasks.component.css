@@ -1,0 +1,44 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fc; }
+.app-container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+.app-header {
+    display: flex; justify-content: space-between; align-items: center;
+    background: white; padding: 1rem 2rem; border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2rem;
+}
+.user-info { display: flex; gap: 1rem; align-items: center; }
+.logout-btn { background: #e74c3c; color: white; border: none; padding: 0.3rem 1rem; border-radius: 30px; cursor: pointer; }
+.chart-container {
+    background: white; border-radius: 32px; padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05); margin-bottom: 2rem;
+}
+.tasks-header { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+.btn-add {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; border: none; padding: 0.7rem 1.5rem;
+    border-radius: 40px; font-size: 1rem; cursor: pointer;
+}
+.tasks-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.task-card-item {
+    background: white; border-radius: 24px; padding: 1.2rem;
+    transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.completed-date {
+    font-size: 0.7rem;
+    color: #4caf50;
+    margin-left: 0.5rem;
+}
+
+.task-card-item:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+.task-title { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.task-title span.completed { text-decoration: line-through; color: #888; }
+.task-desc { color: #555; font-size: 0.9rem; margin: 0.5rem 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.task-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.date { font-size: 0.8rem; color: #999; }
+.btn-delete { background: none; border: none; font-size: 1.2rem; cursor: pointer; opacity: 0.6; }
+.btn-delete:hover { opacity: 1; }
+.status-msg { text-align: center; margin-top: 1rem; color: #4caf50; }

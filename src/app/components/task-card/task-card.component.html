@@ -1,0 +1,28 @@
+<div class="task-card-overlay">
+    <div class="task-card">
+        <h2>Редактирование задачи</h2>
+        <div class="field">
+            <label>Название</label>
+            <input [(ngModel)]="editedTask.title" placeholder="Название">
+        </div>
+        <div class="field">
+            <label>Описание</label>
+            <textarea rows="4" [(ngModel)]="editedTask.description" placeholder="Описание"></textarea>
+        </div>
+        <div class="field">
+            <label>Статус</label>
+            <div class="status-row">
+                <input type="checkbox" [(ngModel)]="editedTask.completed" (change)="onCompletedChange()">
+                <span>Выполнена</span>
+            </div>
+        </div>
+        <div class="field" *ngIf="editedTask.completed">
+            <label>Дата выполнения</label>
+            <input type="datetime-local" [(ngModel)]="completedAtLocal"/>
+        </div>
+        <div class="actions">
+            <button class="btn-save" (click)="save()">Сохранить</button>
+            <button class="btn-cancel" (click)="cancel()">Отмена</button>
+        </div>
+    </div>
+</div>

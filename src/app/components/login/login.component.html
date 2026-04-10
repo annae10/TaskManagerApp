@@ -1,0 +1,23 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>{{ isLoginMode ? 'Вход' : 'Регистрация' }}</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" [(ngModel)]="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Пароль</label>
+                <input type="password" [(ngModel)]="password" name="password" required>
+            </div>
+            <button type="submit" class="btn-primary">
+                {{ isLoginMode ? 'Войти' : 'Зарегистрироваться' }}
+            </button>
+            <p class="toggle-text">
+                {{ isLoginMode ? 'Нет аккаунта?' : 'Уже есть аккаунт?' }}
+                <a (click)="toggleMode()">{{ isLoginMode ? 'Зарегистрируйтесь' : 'Войдите' }}</a>
+            </p>
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+        </form>
+    </div>
+</div>

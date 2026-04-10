@@ -1,0 +1,37 @@
+<div class="app-container">
+    <header class="app-header">
+        <h1>📋 Менеджер задач</h1>
+        <div class="user-info">
+            <span>👤 {{ userEmail }}</span>
+            <button class="logout-btn" (click)="logout()">Выйти</button>
+        </div>
+    </header>
+
+    <div class="chart-container">
+        <h2>📊 Выполненные задачи за последние 5 дней</h2>
+        <canvas #chartCanvas width="800" height="250" style="width:100%; height:250px;"></canvas>
+    </div>
+
+    <div class="tasks-header">
+        <button class="btn-add" (click)="addTask()">➕ Новая задача</button>
+    </div>
+
+    <div class="tasks-grid">
+        <div *ngFor="let task of tasks" class="task-card-item" (click)="openTaskCard(task)">
+            <div class="task-title">
+                <input type="checkbox" [checked]="task.completed" (change)="toggleComplete(task, $event)" (click)="$event.stopPropagation()">
+                <span [class.completed]="task.completed">{{ task.title }}</span>
+            </div>
+            <p class="task-desc">{{ task.description || 'Нет описания' }}</p>
+            
+            <div class="task-meta">
+            <span class="date">📅 {{ task.createdAt | date:'dd.MM.yy' }}</span>
+            <span *ngIf="task.completedAt" class="completed-date">✅ {{ task.completedAt | date:'dd.MM.yy HH:mm' }}</span>
+            <button class="btn-delete" (click)="deleteTask(task._id, $event)">🗑️</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="statusMessage" class="status-msg">{{ statusMessage }}</div>
+</div>
